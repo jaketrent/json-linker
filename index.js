@@ -1,1 +1,1 @@
-require('./lib/json-linker')
+module.exports = require('./lib/json-linker')
