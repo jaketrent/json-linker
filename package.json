@@ -1,0 +1,25 @@
+{
+  "name": "json-linker",
+  "version": "1.0.0",
+  "description": "Links and unlinks for json api",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha --harmony \"test/unit/**/*.spec.coffee\""
+  },
+  "keywords": [
+    "json",
+    "json-api",
+    "links",
+    "linked"
+  ],
+  "author": "jaketrent",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "~1.20.1",
+    "coffee-script": "~1.7.1",
+    "should": "~4.0.4"
+  },
+  "dependencies": {
+    "underscore": "~1.6.0"
+  }
+}
