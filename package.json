@@ -1,8 +1,16 @@
 {
   "name": "json-linker",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Links and unlinks for json api",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jaketrent/json-linker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jaketrent/json-linker/issues"
+  },
+  "homepage": "https://github.com/jaketrent/json-linker",
   "scripts": {
     "test": "node_modules/mocha/bin/mocha --harmony \"test/unit/**/*.spec.coffee\""
   },
@@ -17,7 +25,8 @@
   "devDependencies": {
     "mocha": "~1.20.1",
     "coffee-script": "~1.7.1",
-    "should": "~4.0.4"
+    "should": "~4.0.4",
+    "rf-release": "~0.1.2"
   },
   "dependencies": {
     "underscore": "~1.6.0"
