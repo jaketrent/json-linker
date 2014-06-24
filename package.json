@@ -1,6 +1,6 @@
 {
   "name": "json-linker",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Links and unlinks for json api",
   "main": "index.js",
   "repository": {

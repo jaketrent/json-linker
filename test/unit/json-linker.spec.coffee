@@ -142,13 +142,6 @@ describe 'json-linker', ->
       actual = unlinker.toEmbeddedModel()
       actual.should.not.have.property CONSTANT_DEFAULT_ROOT_ATTRIBUTE
 
-    it 'errors if custom root not found in json model', ->
-      json = new JsonLinker(model, 'customRoot')
-        .links('author', 'tags')
-        .toJson()
-      unlinker = new JsonLinker(json, 'aDifferentRoot')
-      (-> unlinker.toEmbeddedModel()).should.throw('Root attribute not supported')
-
     it 'strips the custom root attribute', ->
       json = new JsonLinker(model, 'customRoot')
         .links('author', 'tags')
@@ -167,6 +160,15 @@ describe 'json-linker', ->
     it 'strips the links attribute', ->
       actual = unlinker.toEmbeddedModel()
       actual.should.not.have.property 'links'
+
+    it 'defaults to unlinking first non-linked, non-meta root attribute', ->
+      json = new JsonLinker(model, 'anyNonLinkedNonMetaRoot')
+        .links('author', 'tags')
+        .toJson()
+      unlinker = new JsonLinker(json)
+      actual = unlinker.toEmbeddedModel()
+      actual.should.eql model
+
 
   # TODO: uncomment when we support array models well
 #  describe '#first', ->
