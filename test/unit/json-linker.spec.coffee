@@ -143,6 +143,16 @@ describe 'json-linker', ->
     it 'has an alias of toJSON', ->
       linker.toJSON.should.be.type 'function'
 
+    it 'has no linked attribute if #links never called', ->
+      actual = new JsonLinker(model).toJson()
+      actual.should.not.have.property 'linked'
+
+    it 'has no linked attribute if nothing found to link', ->
+      actual = new JsonLinker(model)
+        .links('unfound')
+        .toJson()
+      actual.should.not.have.property 'linked'
+
   describe '#toEmbeddedModel', ->
 
     it 'strips the default root attribute', ->
