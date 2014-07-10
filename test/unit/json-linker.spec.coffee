@@ -126,6 +126,13 @@ describe 'json-linker', ->
         .toJson()
       actual.should.have.property 'linked'
 
+    it 'has a linked for a single links entry', ->
+      linkKey = 'tags'
+      actual = linker
+        .links(linkKey)
+        .toJson()
+      actual.linked.should.have.property linkKey
+
     it 'has a linked entry for every links entry', ->
       actual = linker
         .links('tags', 'author')
