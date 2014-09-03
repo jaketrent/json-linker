@@ -186,6 +186,13 @@ describe 'json-linker', ->
       actual = unlinker.toEmbeddedModel()
       actual.should.eql model
 
+    it 'lets models with errors pass through', ->
+      json =
+        errors: [{ id: 'terrible' }]
+      unlinker = new JsonLinker(json)
+      actual = unlinker.toEmbeddedModel()
+      actual.should.eql json
+
     it 'lets empty object pass through', ->
       json = {}
       unlinker = new JsonLinker(json)
@@ -197,7 +204,7 @@ describe 'json-linker', ->
       unlinker = new JsonLinker(json)
       actual = unlinker.toEmbeddedModel()
       should.not.exist actual
-      
+
   # TODO: uncomment when we support array models well
 #  describe '#first', ->
 #
